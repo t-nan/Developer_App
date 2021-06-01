@@ -1,0 +1,69 @@
+
+
+<div class="container">
+	<h5 class="position-fixed top-50 end-0"><span class="badge  bg-info"> Plans </span></h5>
+
+    <div class="p-3 mb-2 bg-white text-dark">
+	<table class="table table-hover">		
+	  	<tbody class="text-center">
+	  		
+	  		<tr>
+
+	  			<th class="p-3 mb-2 bg-dark text-white"> Plan (flat type)</th>
+
+	  			<th class="p-3 mb-2 bg-dark text-white"> Square (m2) </th>
+
+	  			<th class="p-3 mb-2 bg-dark text-white"> Rooms </th>
+
+	  			<th class="p-3 mb-2 bg-dark text-white"> Flats on sale </th>
+
+	  			<th class="p-3 mb-2 bg-dark text-white"> Info </th>
+
+	  			
+	  		</tr></br>
+
+
+			<% @plans.each do |line| %>
+
+		     <tr>
+
+		       <td> <%=image_tag line.image.url(:thumb) %> </td>
+
+			   <td> </br></br> <%= line.kind %> </td>
+
+			   <td> </br></br> <%= line.rooms %> </td>
+
+			   <td> </br></br> 
+			   	               <% n = line.flats.group(:status).count %>
+			   	               
+			   	    <h6  class="text text-success"> <%= n[true].to_i+0 %> </h6>
+			   	             
+			   </td>
+			   
+
+			   <td> </br></br> <%= link_to 'Show flats',plan_path(line), class: "text-decoration-none text-primary" %></td>
+
+
+
+			  <td> <%= link_to 'Edit',edit_plan_path(line), class: "btn btn-outline-primary btn-sm "%> </td>
+
+              <td> <%= link_to 'Delete',plan_path(line), method: :delete, data: {confirm: "Delete position"}, class: "btn btn-outline-danger btn-sm "%>
+
+			
+		     </tr>
+
+		    <% end %>
+ 
+
+		</tbody>
+	</table>
+	</div>
+
+</div>
+
+</div>
+
+
+
+
+  

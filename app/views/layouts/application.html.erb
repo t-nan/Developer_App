@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <style>
+   body{
+    background-image: url(/assets/back-3.jpg) , url(/assets/back-6.jpg) , url(/assets/back-3.jpg) , url(/assets/back-2.jpg);
+    background-attachment: fixed;
+   
+    
+    background-repeat: no-repeat;
+    background-size: 8%, 25%, 8%, 7% ;
+    background-position: right bottom, center ,left bottom, left top 50px ;
+   } 
+ </style>
+
+
+ <style>
+   ul{
+    background-image: url(/assets/back-1.jpg);
+    background-attachment: fixed;
+   
+    background-position: right top;
+    background-repeat: repeat-x;
+    background-size: 10%;
+   } 
+ </style>
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <title>DeveloperApp</title>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    
+
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link text-decoration-none text-white" href="<%=static_pages_path%>">About us</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link text-decoration-none text-white" href="<%=plans_path%>">Choice by plan</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link text-decoration-none text-white" href="<%=flats_path%>">All flats list</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link text-decoration-none text-white" href="<%=new_plan_path %>">Admin</a>
+      </li>
+    </ul>
+
+  </br>
+
+  <div class="position-fixed top-10 end-0">
+
+         <button type="button" class="btn btn-primary btn-md rounded-pill" data-bs-toggle="modal"   data-bs-target="#random">
+             To book <span class="badge bg-info">click</span>
+         </button>
+  </div>
+
+              <div class="modal fade" id="random" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="random">Your contacts</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+
+                      <%= form_for :contact,url: contacts_path do |f| %>
+
+                        <div class="mb-3">
+                          <label for="recipient-name" class="col-form-label"> <%= f.label :name %> <%= f.text_field :name, class: "form-control form-control-sm" %> </label>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="message-text" class="col-form-label"> <%= f.label :surname %> <%= f.text_field :surname, class: "form-control form-control-sm" %> </label>  
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="message-text" class="col-form-label"> <%= f.label :phone %> <%= f.text_field :phone, class: "form-control form-control-sm" %> </label>  
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="message-text" class="col-form-label"> <%= f.label :flat %> <%= f.text_field :flat, class: "form-control form-control-sm" %> </label>  
+                        </div>
+             
+                    </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                      <%= f.submit 'Save contact',class: "btn btn-primary btn-sm" %>
+                    </div>
+
+                    <% end %>
+
+
+                  </div>
+                </div>
+              </div>
+  
+
+
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+
+
+  <body>
+    <%= yield %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    
+  </body>
+</html>
+
