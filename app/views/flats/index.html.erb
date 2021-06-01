@@ -1,0 +1,92 @@
+
+<div class="container">
+
+	<h5 class="position-fixed top-50 end-0"><span class="badge  bg-info"> All flats </span></h5>
+
+    <div class="p-3 mb-2 bg-white text-dark">
+	<table class="table table-striped">
+	  	<tbody class="text-center">
+	  		
+	  		<tr>
+
+	  			<th class="p-3 mb-2 bg-dark text-white">Flat number </th>
+
+	  			<th class="p-3 mb-2 bg-dark text-white"> Entrance </th>
+
+	  			<th class="p-3 mb-2 bg-dark text-white"> Floor </th>
+
+	  			<th class="p-3 mb-2 bg-dark text-white"> Square </th>
+
+	  			<th class="p-3 mb-2 bg-dark text-white"> Rooms </th>
+
+	  			<th class="p-3 mb-2 bg-dark text-white"> Status </th>
+
+	  			<th class="p-3 mb-2 bg-dark text-white"> Info </th>
+
+
+	  		</tr></br>
+
+
+			<% @flats.each do |line| %>
+
+		     <tr>
+
+			   <td> <%= line.number %> </td>
+
+			   <td> <%= line.entrance %> </td>
+
+			   <td> <%= line.floor %> </td>
+
+			   <td> <%= line.square %> m2 </td>
+
+			   <td> <%= line.rooms %> </td>
+
+			        <% line.status %>
+
+                    <% if line.status==true %>
+
+                       <td class="text-success"> On sale </td>
+                    	
+                    <% else %>
+
+                       <td class="text-danger"> Booked </td>
+
+                    <% end %>
+
+
+                 <td> <%= link_to 'Show ', plan_flat_path(line.plan_id,line.id) , class: "text-decoration-none text-danger" %></td>
+         
+
+			
+		     </tr>
+
+
+		    <% end %>
+ 
+
+		</tbody>
+
+	</table>
+    </div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
