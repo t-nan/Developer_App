@@ -1,0 +1,121 @@
+
+
+<div class="container">
+
+	<div class="row align-items-start">
+    	
+
+		<div class="col">
+
+			<div class="p-3 mb-2 bg-white text-dark">
+
+
+				<h6> Question :</h6> </br>
+
+				<p><h6 class="fst-italic"> <%= @question.author %> : <%= @question.body %></h6></p>
+
+				<p class="fst-italic"><small> <%= @question.updated_at.to_date.strftime ("%d ,%B %Y") %> </small> </p>
+
+			</div>
+
+		</div>
+
+		<div class="col">
+		</div>
+
+		<div class="col">
+		</div>		    
+
+	</div>
+
+</div>
+
+</br>
+</br>
+
+
+<div class="container">
+
+	<div class="row align-items-start">
+    	
+
+		<div class="col">
+
+
+		    <%= link_to "Back", :back, class: "btn btn-outline-secondary" %>
+
+			<a class="btn btn-outline-primary" data-bs-toggle="collapse" href="#collapseExample"  aria-controls="collapseExample">
+		    		Click to answer
+		  	</a>
+
+
+				<div class="collapse" id="collapseExample">
+				  <div class="card card-body">
+			
+
+					<%if @error %>
+						<div class="alert alert-danger"><%=@error.join(",")%></div>
+					<% end %>
+
+
+					<%= form_for [@plan, @question, @answer] do |f| %>
+
+					<div class="form-row">
+					<div class="form-group col-md-3">
+
+					    <%= f.text_field :author, class: "form-control form-control-sm" , id: "exampleFormControlInput1" ,placeholder:"Name" , value: "Company" %></p>
+					</div>
+					</div>
+
+					<div class="form-row">
+					<div class="form-group col-md-10">
+			
+						<%= f.text_area :body, class: "form-control form-control-sm" , id: "exampleFormControlInput1" ,placeholder:"Answer"  %>
+					</div>
+					</div>
+
+				       </br>
+
+					<div class="form-group">
+						<%= f.submit 'Save',class: "btn btn-outline-secondary btn-sm" %>	
+					</div>
+
+					<% end %>
+
+				  </div>
+	 			</div>
+
+		</div>
+
+		<div class="col">
+		</div>
+
+
+	</div>
+</div>
+
+</br></br></br>
+
+
+
+  <div class="container">
+
+<h6> Answers :</h6> </br></br>
+
+   <% @ans.each do |answer| %> 
+
+<small class="fst-italic"> <%= answer.author %> : <%= answer.body %></small><hr>
+
+</br> 
+
+   <% end %>
+
+</div>
+
+
+
+
+
+
+
+
