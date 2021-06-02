@@ -1,0 +1,65 @@
+
+
+<div class="container">
+
+	<%= form_for :flat,url: admin_plan_flats_path(@plan,@flats) do |f| %>
+
+
+		<%if @error %>
+			<div class="alert alert-danger"><%=@error.join(",")%></div>
+		<% end %>
+
+				  <div class="col-sm-1">
+				    <%= f.label :number %>
+					<%= f.text_field :number, class: "form-control" %>
+				  </div>
+
+				  <div class="col-sm-1">
+				    <%= f.label :entrance %>
+					<%= f.select :entrance, [['1', 1], ['2', 2]] , {}, {class: "form-control"} %>
+				  </div>
+
+				  <div class="col-sm-1">
+				    <%= f.label :floor %>
+					<%= f.text_field :floor, class: "form-control" %>
+				  </div>
+
+				  <div class="col-sm-1">
+				    <%= f.label :square %>
+					<%= f.text_field :square, class: "form-control" %>
+				  </div>
+
+				  <div class="col-sm-1">
+				    <%= f.label :rooms %>
+					<%= f.select :rooms, [['1', 1], ['2', 2], ['3', 3]] , {}, {class: "form-control"} %>
+				  </div>
+
+				  <div class="col-sm-2">
+				    <%= f.label :status %>
+					<%= f.select :status, [['On sale', 1], ['Booked', 0]] , {}, {class: "form-control"} %>
+				  </div>
+
+				</br>  
+
+				  <div class="col-sm-3">
+				    <%= f.label :image %>
+    				<%= f.file_field :image %>
+				  </div>
+
+				</br>
+
+				  <div class="col-sm">
+					<%= link_to "Back", :back, class: "btn btn-outline-secondary" %>
+					<%= f.submit 'Save flat' ,class: "btn btn-outline-success" %>						
+				  </div>			 		
+
+	<% end %>
+
+</div>
+	
+
+
+
+
+
+
