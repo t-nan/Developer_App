@@ -1,0 +1,77 @@
+
+
+<div class="container">
+
+<h4>Edit flat</h4>
+
+
+<%if @error %>
+	<div class="alert alert-danger"><%=@error.join(",")%></div>
+<% end %>
+
+
+<%= form_for :flat,url: admin_plan_flat_path(@plan,@flat),method: :put do |f| %>
+
+
+<div class="row g-3 align-items-center">
+<div class="col-sm-1">
+	<%= f.label :number %>
+	<%= f.text_field :number, class: "form-control" %>
+</div>
+</div>
+
+<div class="row g-3 align-items-center">
+<div class="col-sm-1">
+	<%= f.label :entrance %>
+	<%= f.text_field :entrance, class: "form-control" %>
+</div>
+</div>
+
+<div class="row g-3 align-items-center">
+<div class="col-sm-1">
+	<%= f.label :floor %>
+	<%= f.text_field :floor, class: "form-control" %>
+</div>
+</div>
+
+<div class="row g-3 align-items-center">
+<div class="col-sm-1">
+	<%= f.label :square %>
+	<%= f.text_field :square, class: "form-control" %>
+</div>
+</div>
+
+<div class="row g-3 align-items-center">
+<div class="col-sm-1">
+	<%= f.label :rooms %>
+	<%= f.text_field :rooms, class: "form-control" %>
+</div>
+</div>
+
+<div class="row g-3 align-items">
+<div class="col-sm-2">
+	<%= f.label :status %>
+	<%= f.text_field :status, class: "form-control" %>
+</div>
+</div>
+
+<div class="row g-3 align-items">
+<div class="col-sm-3">
+	<%= f.label :image %>
+	<%= f.file_field :image, class: "form-control" %>
+</div>
+</div>
+
+<div class="form-group">
+	<%= f.submit 'Save flat' ,class: "btn btn-outline-success" %>   
+	<%= link_to "Back", :back, class: "btn btn-outline-secondary" %>	
+</div>
+
+<% end %>
+
+</div>
+
+
+
+
+
