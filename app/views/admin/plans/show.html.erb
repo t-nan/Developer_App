@@ -1,0 +1,270 @@
+
+
+<div class="position-fixed top-50 start-0" >
+	<%= link_to "Back", admin_plans_path, class: "btn btn-secondary" %>
+</div>
+
+<div class="container">
+
+</br>
+
+	<div class="row align-items-start">
+    	
+
+		<div class="col">
+
+			<h2 class="text-center"><span class="badge rounded-pill bg-warning"><%= @plan.kind %> m2</span></h2>
+
+            <p class="fst-italic"><%= image_tag @plan.image.url(:medium) %> </p>  
+
+        </div>
+
+
+
+        <div class="col">
+
+		</div>
+
+
+		</br></br></br>
+
+
+        <div class="col">
+        	<div class="border border border-1 border-secondary">
+
+        	</br>
+
+			
+        	<h6 class="text text-center">Any question? - 
+
+            	<button type="button" class="btn btn-primary btn-sm position-relative rounded-pill " data-bs-toggle="modal" 	data-bs-target="#exampleModal" data-bs-whatever="@mdo">ask
+
+            	</button>
+
+
+				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+					aria-hidden="true">
+				  	<div class="modal-dialog">
+				    	<div class="modal-content">
+
+					      <div class="modal-header">
+					        <h5 class="modal-title" id="exampleModalLabel">Ask question</h5>
+					        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					      </div>
+
+			      			<div class="modal-body">
+
+			      			<div class="text text-start fw-normal">
+			       
+
+					        	<%= form_for ([@plan,@plan.questions.build]) do |f| %>
+
+						          <div class="mb-3">
+						            <label for="recipient-name" class="col-form-label"> <%= f.label :author %> <%= f.text_field :author, class: "form-control form-control-sm" %> </label>
+						          </div>
+
+						          <div class="mb-5">
+						            <label for="message-text" class="col-form-label"> <%= f.label :body %> <%= f.text_area :body, class: "form-control form-control-sm" %> </label>  
+						          </div>
+
+                            
+			      		          <div class="modal-footer">
+				                      <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+				                      <%= f.submit 'Save question',class: "btn btn-primary btn-sm" %>
+                    			  </div>
+
+
+				          		<% end %>
+				          	</div>
+			      		    </div>
+			       
+			      			
+			    		</div>
+					</div>
+				</div>
+        	</h6></br></br>
+	
+
+			<% @questions.each_with_index do |question,index| %>
+
+	  			<small class="fst-italic"><p class="text-center"><%= question.author %> :
+	  			 	
+			  		<%= link_to question.body, admin_plan_question_path(@plan,question) , class: "text-decoration-none text-dark" %></p>	
+	  			</small>
+
+
+	  			<% question.answers.order(created_at: :desc).each do |ans| %>
+
+	  				<small class="fst-italic"><p class="text-center text-secondary"> <%= ans.author %> : <%= ans.body %>
+
+	  				</p></small>
+
+	  				<% break %>
+
+	  			<% end %>  <hr>
+
+           
+	  		
+	  		  <% if index >= 2 %>
+	  		  	<% break %>
+	  		  <% end %>
+
+  			<% end %>
+
+          
+
+</br>     <% if @count >= 6 %>
+
+
+         	<h6 class="text text-center">
+
+
+			<button type="button" class="btn-primary btn-sm position-relative rounded-pill" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  				Show all
+  				<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> <%= @count %> <span class="visually-hidden">непрочитанные сообщения</span></span>
+			</button>
+
+			<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-scrollable">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="staticBackdropLabel">Questions</h5>
+			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+			      <div class="modal-body">
+
+
+			        <% @questions.each_with_index do |question,index| %>
+
+			  			<small class="fst-italic"><p class="text-start"> (<%= question.updated_at.to_date.strftime ("%d ,%B %Y") %>) <%= question.author %>  :
+			  			 	
+					  		<%= link_to question.body, admin_plan_question_path(@plan,question) , class: "text-decoration-none text-dark" %></p>	
+			  			</small>
+
+
+		  				<% question.answers.order(created_at: :desc).each do |ans| %>
+
+			  				<small class="fst-italic"><p class="text-start text-secondary"> <%= ans.author %> : <%= ans.body %>
+
+			  				</p></small>
+
+		  					<% break %>
+
+		  				<% end %>  <hr>
+
+		  			<% end %>
+
+
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+		</div>
+
+        </div>
+
+    </div>
+</h6>
+
+<% end %>
+
+</div>
+
+</div>
+
+
+
+<div class="container">
+
+    <div class="p-3 mb-2 bg-white text-dark">
+	<table class="table table-striped">
+	  	<tbody class="text-center">
+	  		
+	  		<tr>
+
+	  			<th class="p-3 mb-2 bg-secondary text-white">Flat number </th>
+
+	  			<th class="p-3 mb-2 bg-secondary text-white"> Entrance </th>
+
+	  			<th class="p-3 mb-2 bg-secondary text-white"> Floor </th>
+
+	  			<th class="p-3 mb-2 bg-secondary text-white"> Square </th>
+
+	  			<th class="p-3 mb-2 bg-secondary text-white"> Rooms </th>
+
+	  			<th class="p-3 mb-2 bg-secondary text-white"> Status </th>
+
+	  			<th class="p-3 mb-2 bg-secondary text-white"> Info </th>
+
+	  			<th class="p-3 mb-2 bg-secondary text-white"> Edit </th>
+
+	  			<th class="p-3 mb-2 bg-secondary text-white"> Delete </th>
+
+	  			<th class="p-3 mb-2 bg-secondary text-white"> Add new flat </th>
+
+
+
+	  		</tr></br>
+
+
+			<% @flats.each do |line| %>
+
+		     <tr>
+
+			   <td> <%= line.number %> </td>
+
+			   <td> <%= line.entrance %> </td>
+
+			   <td> <%= line.floor %> </td>
+
+			   <td> <%= line.square %> m2 </td>
+
+			   <td> <%= line.rooms %> </td>
+
+			        <% line.status %>
+
+                    <% if line.status==true %>
+
+                       <td class="text-success"> On sale </td>
+                    	
+                    <% else %>
+
+                       <td class="text-danger"> Booked </td>
+
+                    <% end %>
+
+          
+
+			  <td> <%= link_to 'Show',admin_plan_flat_path(@plan,line), class: "text-decoration-none text-danger" %> </td>
+			  <td> <%= link_to 'Edit',edit_admin_plan_flat_path(@plan,line), class: "text-decoration-none text-danger "%> </td>
+
+              <td> <%= link_to 'Delete',admin_plan_flat_path(@plan,line), method: :delete, data: {confirm: "Delete position"}, class: "text-decoration-none text-danger "%>
+
+              <td> <%= link_to 'New',new_admin_plan_flat_path(@plan), class: "text-decoration-none text-danger"%> </td>
+
+			
+		     </tr>
+
+		    <% end %>
+ 
+
+		</tbody>
+
+	</table>
+    </div>
+
+	 
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
