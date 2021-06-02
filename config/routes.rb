@@ -21,6 +21,37 @@ Rails.application.routes.draw do
     resources :flats
 
     resource :contacts
+
+    # admin area
+    get "/admin" => "admin/plans#index"
+
+
+    namespace :admin do
+     resources :plans do
+      resources :questions do
+        resources :answers
+      end
+     end
+   end
+
+    namespace :admin do
+      resources :plans do
+        resources :flats
+      end
+    end
+
+
+    namespace :admin do
+      resource :static_pages
+    end
+
+    namespace :admin do
+      resources :flats
+    end
+
+    namespace :admin do
+      resource :contacts
+    end
   
 
 
