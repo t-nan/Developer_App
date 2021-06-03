@@ -5,12 +5,7 @@ class QuestionsController < ApplicationController
     @questions=@plan.questions.order(created_at: :desc)
   end
 
-  def show
-    @plan=Plan.find(params[:plan_id])
-    @question=@plan.questions.find(params[:id])
-    @answer=Answer.new
-    @ans=@question.answers
-    
+  def show  
   end
 
   def new
