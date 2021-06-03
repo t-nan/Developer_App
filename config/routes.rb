@@ -52,6 +52,10 @@ Rails.application.routes.draw do
     namespace :admin do
       resource :contacts
     end
+
+    namespace :admin do
+      resources :questions
+    end
   
 
 
