@@ -1,0 +1,19 @@
+
+<div class="container">
+
+	<% @all_questions.each do |ques| %>
+
+
+     <p>Date :<small> <%= ques.updated_at.to_date.strftime ("%d/%m/%y") %> </small></p>
+     <p>Name :<h6 class="text text-danger"> <%= ques.author %> :</h6></p>
+     Asks <h6 class="text text-secondary"> <%=ques.body %> </h6>
+     Plan id <h6 class="text text-secondary"> <%=ques.plan_id %> </h6>
+
+    </br>
+    </br>
+
+    <% end%>	    
+
+	
+
+</div>
