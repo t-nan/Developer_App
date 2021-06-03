@@ -1,0 +1,52 @@
+<h5 class="position-fixed top-50 end-0"><span class="badge  bg-info"> About us </span></h5>
+
+<div class="container">
+
+    </br>
+    </br>
+    
+	<div class="row align-items-start">
+			
+    	<div class="col">
+
+		        <title>API карт 2ГИС</title>
+		        <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+		        <script type="text/javascript">
+		            var map;
+
+		            DG.then(function () {
+		                map = DG.map('map', {
+		                    center: [55.8, 49.17],
+		                    zoom: 13
+		                });
+
+		                DG.marker([55.8, 49.17]).addTo(map).bindPopup('We are here!');
+		            });
+		        </script>
+		    </head>
+		    <body>
+		        <div id="map" style="width:400px; height:300px"></div>
+		    </body>
+
+        </div>
+
+
+        <div class="col">
+
+        </div>
+
+        <div class="col">
+        	bla-bla-bla
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+
+
+
+  
