@@ -50,7 +50,7 @@ Rails.application.routes.draw do
     end
 
     namespace :admin do
-      resource :contacts
+      resources :contacts
     end
 
     namespace :admin do
