@@ -178,7 +178,7 @@
 <div class="container">
 
     <div class="p-3 mb-2 bg-white text-dark">
-	<table class="table table-striped">
+	<table class="table table">
 	  	<tbody class="text-center">
 	  		
 	  		<tr>
@@ -201,7 +201,9 @@
 
 	  			<th class="p-3 mb-2 bg-secondary text-white"> Delete </th>
 
-	  			<th class="p-3 mb-2 bg-secondary text-white"> Add new flat </th>
+	  		    <%= link_to 'Add new flat',new_admin_plan_flat_path(@plan), class: "btn btn-danger"%>
+
+	  		    </br>
 
 
 
@@ -240,9 +242,6 @@
 			  <td> <%= link_to 'Edit',edit_admin_plan_flat_path(@plan,line), class: "text-decoration-none text-danger "%> </td>
 
               <td> <%= link_to 'Delete',admin_plan_flat_path(@plan,line), method: :delete, data: {confirm: "Delete position"}, class: "text-decoration-none text-danger "%>
-
-              <td> <%= link_to 'New',new_admin_plan_flat_path(@plan), class: "text-decoration-none text-danger"%> </td>
-
 			
 		     </tr>
 
