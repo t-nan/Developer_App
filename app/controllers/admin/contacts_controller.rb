@@ -1,5 +1,9 @@
 class Admin::ContactsController < Admin::ApplicationController
 
+  def index
+    @contacts=Contact.all.order(created_at: :desc)
+  end
+
   def new
   end
 
