@@ -89,7 +89,8 @@
 
 	  			<small class="fst-italic"><p class="text-center"><%= question.author %> :
 	  			 	
-			  		<%= link_to question.body, plan_question_path(@plan,question) , class: "text-decoration-none text-dark" %></p>	
+			  		<%= question.body %></p>
+
 	  			</small>
 
 
@@ -138,7 +139,8 @@
 
 			  			<small class="fst-italic"><p class="text-start"> (<%= question.updated_at.to_date.strftime ("%d ,%B %Y") %>) <%= question.author %>  :
 			  			 	
-					  		<%= link_to question.body, plan_question_path(@plan,question) , class: "text-decoration-none text-dark" %></p>	
+					  		<%= question.body %></p>
+
 			  			</small>
 
 
@@ -228,13 +230,9 @@
 
                     <% end %>
 
-          
 
 			  <td> <%= link_to 'Show',plan_flat_path(@plan,line), class: "text-decoration-none text-danger" %> </td>
-			  <td> <%= link_to 'Edit',edit_plan_flat_path(@plan,line), class: "btn btn-outline-primary btn-sm "%> </td>
-
-              <td> <%= link_to 'Delete',plan_flat_path(@plan,line), method: :delete, data: {confirm: "Delete position"}, class: "btn btn-outline-danger btn-sm "%>
-
+			  
 			
 		     </tr>
 
@@ -245,8 +243,6 @@
 
 	</table>
     </div>
-
-	 <%= link_to 'New',new_plan_flat_path(@plan), class: "btn btn-outline-success btn-sm "%>
 
 </div>
 
