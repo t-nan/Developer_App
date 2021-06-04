@@ -1,19 +1,23 @@
 
 <div class="container">
 
-	<% @all_questions.each do |ques| %>
+	<% @all_questions.each do |question| %>
 
 
-     <p>Date :<small> <%= ques.updated_at.to_date.strftime ("%d/%m/%y") %> </small></p>
-     <p>Name :<h6 class="text text-danger"> <%= ques.author %> :</h6></p>
-     Asks <h6 class="text text-secondary"> <%=ques.body %> </h6>
-     Plan id <h6 class="text text-secondary"> <%=ques.plan_id %> </h6>
+     <small>Date : <%= question.updated_at.to_date.strftime ("%d/%m/%y") %> </small> </br>
+     <small>Name : <%= question.author %> </small> </br>
+     <small>Asks : <%= link_to question.body, admin_plan_question_path(question.plan_id ,question.id) ,class: "text-decoration-none text-primary"%> </small> </br>
+     <small>Plan id : <%=question.plan_id %> </small> </br>
+
+     <% question.answers.each do |q| %>	
+
+		 <small class="text text-success">Answer : <%= q.body %> </small></br>
+
+     <% end%>
 
     </br>
-    </br>
+    <hr>
 
-    <% end%>	    
-
-	
+    <% end%>	
 
 </div>
