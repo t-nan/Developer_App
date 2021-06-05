@@ -6,7 +6,7 @@
 
      <small>Date : <%= question.updated_at.to_date.strftime ("%d/%m/%y") %> </small> </br>
      <small>Name : <%= question.author %> </small> </br>
-     <small>Asks : <%= link_to question.body, admin_plan_question_path(question.plan_id ,question.id) ,class: "text-decoration-none text-primary"%> </small> </br>
+     <small>Asks : " <%= link_to question.body, admin_plan_question_path(question.plan_id ,question.id) ,class: "text-decoration-none text-primary"%> " </small> </br>
      <small>Plan id : <%=question.plan_id %> </small> </br>
 
      <% question.answers.each do |q| %>	
