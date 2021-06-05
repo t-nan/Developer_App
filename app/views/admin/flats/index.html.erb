@@ -13,13 +13,19 @@
 
 	  			<th class="p-3 mb-2 bg-secondary text-white"> Floor </th>
 
-	  			<th class="p-3 mb-2 bg-secondary text-white"> Square </th>
+	  			<th class="p-3 mb-2 bg-secondary text-white"> Square (m2) </th>
 
 	  			<th class="p-3 mb-2 bg-secondary text-white"> Rooms </th>
 
 	  			<th class="p-3 mb-2 bg-secondary text-white"> Status </th>
 
-	  			<th class="p-3 mb-2 bg-secondary text-white"> Info </th>
+	  			<th class="p-3 mb-2 bg-secondary text-white"> Show </th>
+
+	  			<th class="p-3 mb-2 bg-secondary text-white"> Show similar</th>
+
+	  			<th class="p-3 mb-2 bg-secondary text-white"> Edit </th>
+
+	  			<th class="p-3 mb-2 bg-secondary text-white"> Delete </th>
 
 
 	  		</tr></br>
@@ -35,7 +41,7 @@
 
 			   <td> <%= line.floor %> </td>
 
-			   <td> <%= line.square %> m2 </td>
+			   <td> <%= line.square %> </td>
 
 			   <td> <%= line.rooms %> </td>
 
@@ -52,7 +58,15 @@
                     <% end %>
 
 
-                 <td> <%= link_to 'Show ', admin_plan_flat_path(line.plan_id,line.id) , class: "text-decoration-none text-danger" %></td>
+                 <td> <%= link_to 'Show', admin_plan_flat_path(line.plan_id,line.id) , class: "text-decoration-none text-danger" %></td>
+
+                 <td> <%= link_to 'Show similar',admin_plan_path(line.plan_id,line.id), class: "text-decoration-none text-danger "%>
+
+                 <td> <%= link_to 'Edit', edit_admin_plan_flat_path(line.plan_id,line.id) , class: "text-decoration-none text-danger"  %></td>
+
+                 <td> <%= link_to 'Delete',admin_plan_flat_path(line.plan_id,line.id), method: :delete, data: {confirm: "Delete position"}, class: "text-decoration-none text-danger "%>
+
+
          
 
 			
