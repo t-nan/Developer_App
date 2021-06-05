@@ -1,16 +1,20 @@
 
+<div class="container">
+
+	<%if @error %>
+			<small class="alert alert-danger"><%=@error.join(" , ")%></small>
+	<% end %>
+
+</div>
+
+</br> </br>
+
 
 <div class="container">
 
 	<h6> Add plan </h6></br>
-
 		
 		<div class="col">
-
-
-            <%if @error %>
-				<div class="alert alert-danger"><%=@error.join(",")%></div>
-			<% end %>
 
 
 			<%= form_for :plan,url: admin_plans_path do |f| %>
@@ -44,6 +48,8 @@
 			<% end %>
 		</div>
 </div>
+
+
 
 
 

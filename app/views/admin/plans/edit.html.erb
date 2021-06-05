@@ -1,29 +1,40 @@
 <div class="container">
 
-	<h4>Edit plan</h4>
-
+</br>
 
 	<%if @error %>
-		<div class="alert alert-danger"><%=@error.join(",")%></div>
+			<small class="alert alert-danger"><%=@error.join(" , ")%></small>
 	<% end %>
+
+</div>
+
+</br> </br>
+
+<div class="container">
+
+	<h4>Edit plan</h4> </br>
 
 
 	<%= form_for :plan,url: admin_plan_path(@plan),method: :put do |f| %>
 
 		<div class="row g-3 align-items-center">
-		<div class="col-auto">
+		<div class="col-sm-1">
 			<%= f.label :kind %>
 			<%= f.text_field :kind, class: "form-control" %>
 		</div>
 		</div>
 
+	</br>
+
 
 		<div class="row g-3 align-items-center">
-		<div class="col-auto">
+		<div class="col-sm-1">
 			<%= f.label :rooms %>
-			<%= f.text_field :rooms, class: "form-control" %>
+			<%= f.select :rooms, [['1', 1], ['2', 2], ['3', 3]] , {}, {class: "form-control"} %>
 		</div>
 		</div>
+
+	</br>
 
 
 		<div class="row g-3 align-items-center">
@@ -33,10 +44,12 @@
 		</div>
 		</div>
 
+	</br>
+
 
 		<div class="form-group">
-			<%= f.submit 'Save plan' ,class: "btn btn-outline-success" %>   
-			<%= link_to "Back", :back, class: "btn btn-outline-secondary" %>	
+			<%= link_to "Back", :back, class: "btn btn-outline-secondary" %>
+			<%= f.submit 'Save plan' ,class: "btn btn-outline-success" %>   		
 		</div>
 
 

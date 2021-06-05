@@ -1,13 +1,20 @@
 
+<div class="container">
+
+	<%if @error %>
+		<small class="alert alert-danger"><%=@error.join(" , ")%></small>
+	<% end %>
+
+</div>
+
+	</br>
 
 <div class="container">
 
 	<%= form_for :flat,url: admin_plan_flats_path(@plan,@flats) do |f| %>
 
+		
 
-		<%if @error %>
-			<div class="alert alert-danger"><%=@error.join(",")%></div>
-		<% end %>
 
 				  <div class="col-sm-1">
 				    <%= f.label :number %>

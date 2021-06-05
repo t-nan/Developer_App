@@ -2,58 +2,60 @@
 
 <div class="container">
 
-<h4>Edit flat</h4>
+	<%if @error %>
+		<small class="alert alert-danger"><%=@error.join(" , ")%></small>
+	<% end %>
+
+</div></br></br>
 
 
-<%if @error %>
-	<div class="alert alert-danger"><%=@error.join(",")%></div>
-<% end %>
+<div class="container">
+
+<h4>Edit flat</h4></br>
 
 
 <%= form_for :flat,url: admin_plan_flat_path(@plan,@flat),method: :put do |f| %>
 
 
 <div class="row g-3 align-items-center">
-<div class="col-sm-1">
-	<%= f.label :number %>
-	<%= f.text_field :number, class: "form-control" %>
-</div>
-</div>
+
+	<div class="col-sm-1">
+		<%= f.label :number %>
+		<%= f.text_field :number, class: "form-control" %>
+	</div>
+
+	<div class="col-sm-1">
+		<%= f.label :entrance %>
+		<%= f.select :entrance, [['1', 1], ['2', 2]] , {}, {class: "form-control"} %>
+	</div>
+
+	<div class="col-sm-1">
+		<%= f.label :floor %>
+		<%= f.text_field :floor, class: "form-control" %>
+	</div>
+
+</div></br>
 
 <div class="row g-3 align-items-center">
-<div class="col-sm-1">
-	<%= f.label :entrance %>
-	<%= f.text_field :entrance, class: "form-control" %>
-</div>
-</div>
 
-<div class="row g-3 align-items-center">
-<div class="col-sm-1">
-	<%= f.label :floor %>
-	<%= f.text_field :floor, class: "form-control" %>
-</div>
-</div>
+	<div class="col-sm-1">
+		<%= f.label :square %>
+		<input class="form-control" type="text" placeholder="Disabled input" aria-label="Disabled input example" disabled  value="<%= @plan.kind %>">
+	</div>
 
-<div class="row g-3 align-items-center">
-<div class="col-sm-1">
-	<%= f.label :square %>
-	<%= f.text_field :square, class: "form-control" %>
-</div>
-</div>
+	<div class="col-sm-1">
+		<%= f.label :rooms %>
+		<input class="form-control" type="text" placeholder="Disabled input" aria-label="Disabled input example" disabled  value="<%= @plan.rooms %>">
+	</div>
 
-<div class="row g-3 align-items-center">
-<div class="col-sm-1">
-	<%= f.label :rooms %>
-	<%= f.text_field :rooms, class: "form-control" %>
-</div>
-</div>
+</div></br>
 
 <div class="row g-3 align-items">
 <div class="col-sm-2">
 	<%= f.label :status %>
-	<%= f.text_field :status, class: "form-control" %>
+	<%= f.select :status, [['On sale', 1], ['Booked', 0]] , {}, {class: "form-control"} %>
 </div>
-</div>
+</div></br>
 
 <div class="row g-3 align-items">
 <div class="col-sm-3">
@@ -62,9 +64,11 @@
 </div>
 </div>
 
+</br>
+
 <div class="form-group">
+	<%= link_to "Back", :back, class: "btn btn-outline-secondary" %>
 	<%= f.submit 'Save flat' ,class: "btn btn-outline-success" %>   
-	<%= link_to "Back", :back, class: "btn btn-outline-secondary" %>	
 </div>
 
 <% end %>
