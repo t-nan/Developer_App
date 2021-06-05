@@ -24,8 +24,9 @@ class Admin::PlansController < Admin::ApplicationController
     @plan=Plan.new(plan_params)
 
     if @plan.save
-      redirect_to plans_path
+      redirect_to admin_plans_path
     else
+      @error=@plan.errors.full_messages
       render "new"
     end
 
@@ -42,6 +43,7 @@ class Admin::PlansController < Admin::ApplicationController
     if @plan.update(plan_params)
       redirect_to admin_plans_path
     else
+      @error=@plan.errors.full_messages
       render "edit"
     end
 

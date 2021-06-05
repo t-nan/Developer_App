@@ -43,6 +43,7 @@ class Admin::FlatsController < Admin::ApplicationController
     if @flat.update(flat_params)
       redirect_to admin_plan_path(@plan)
     else
+      @error=@flat.errors.full_messages
       render "edit"
     end
 
