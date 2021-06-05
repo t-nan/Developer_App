@@ -25,6 +25,7 @@ class Admin::FlatsController < Admin::ApplicationController
     if @flat.save
       redirect_to admin_plan_path (@plan)
     else
+      @error=@flat.errors.full_messages
       render "new"
     end
 
