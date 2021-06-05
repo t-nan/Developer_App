@@ -9,9 +9,8 @@ class Admin::ContactsController < Admin::ApplicationController
 
   def create
     @contact=Contact.new(contact_params)
-     if @contact.save
+    @contact.save
       redirect_to flats_path
-    end
   end
 
 
