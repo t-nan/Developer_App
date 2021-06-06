@@ -11,19 +11,15 @@ class Admin::FlatsController < Admin::ApplicationController
     @flat=@plan.flats.find(params[:id])
   end
 
-  def new
-    @plan=Plan.find(params[:plan_id])
-    @flats=@plan.flats
+  def new   
   end
 
   def create
 
-    @plan=Plan.find(params[:plan_id])
-
-    @flat=@plan.flats.new(flat_params)
+    @flat=Flat.new(flat_params)
 
     if @flat.save
-      redirect_to admin_plan_path (@plan)
+      redirect_to admin_flats_path
     else
       @error=@flat.errors.full_messages
       render "new"
@@ -62,7 +58,7 @@ class Admin::FlatsController < Admin::ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:number,:entrance,:floor,:square,:rooms,:status,:image)
+    params.require(:flat).permit(:number,:entrance,:floor,:square,:plan_id,:rooms,:status,:image)
   end
 
 end
