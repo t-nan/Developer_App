@@ -1,6 +1,7 @@
-    <div class="container">
-    	<%= link_to 'Add plan',new_admin_plan_path, class: "btn btn-danger" %>
-    </div>
+   
+<div class="position-fixed top-50 start-0">
+	<%= link_to 'Add Plan',new_admin_plan_path, class: "btn btn-danger" %>
+</div>
 
     <div class="p-3 mb-2 bg-white text-dark">
 	<table class="table table-hover">		
@@ -21,7 +22,7 @@
 	  			<th class="p-3 mb-2 bg-secondary text-white"> Edit </th>
 
 	  			<th class="p-3 mb-2 bg-secondary text-white"> Delete </th>
-
+	  			
 	  			
 	  		</tr></br>
 
@@ -44,7 +45,7 @@
 			   </td>
 			   
 
-			   <td> </br></br> <%= link_to 'Show',admin_plan_path(line), class: "text-decoration-none text-danger" %></td>
+			   <td> </br></br> <%= link_to 'Show flats',admin_plan_path(line), class: "text-decoration-none text-danger" %></td>
 
 
 
