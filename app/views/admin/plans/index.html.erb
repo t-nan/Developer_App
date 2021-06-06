@@ -17,6 +17,8 @@
 
 	  			<th class="p-3 mb-2 bg-secondary text-white"> Flats on sale </th>
 
+	  			<th class="p-3 mb-2 bg-secondary text-white"> Sold out </th>
+
 	  			<th class="p-3 mb-2 bg-secondary text-white"> Info </th>
 
 	  			<th class="p-3 mb-2 bg-secondary text-white"> Edit </th>
@@ -41,6 +43,14 @@
 			   	               <% n = line.flats.group(:status).count %>
 			   	               
 			   	    <h6  class="text text-success"> <%= n[true].to_i+0 %> </h6>
+			   	             
+			   </td>
+
+
+			   <td> </br></br> 
+			   	               <% n = line.flats.group(:status).count %>
+			   	               
+			   	    <h6  class="text text-danger"> <%= n[false].to_i+0 %> </h6>
 			   	             
 			   </td>
 			   
