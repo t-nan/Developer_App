@@ -12,37 +12,40 @@
 
 <div class="container">
 
-	<h6> Add plan </h6></br>
+	<h6> Add Plan </h6></br>
 		
 		<div class="col">
 
 
 			<%= form_for :plan,url: admin_plans_path do |f| %>
 
-			      
-				  <div class="col-sm-1">
-				    <%= f.label :kind %>
-					<%= f.text_field :kind, class: "form-control" %>
-				  </div>
+			        <div class="row g-3 align-items-center"> 
 
-				  <div class="col-sm-1">
-				    <%= f.label :rooms %>
-					<%= f.select :rooms, [['1', 1], ['2', 2], ['3', 3]] , {}, {class: "form-control"} %>
-				  </div>
+						<div class="col-sm-1">
+					    	<small><%= f.label :kind %></small>
+							<%= f.select :kind, [['30', 1], ['35', 2], ['36', 3], ['37', 4], ['38', 5], ['40', 6], ['46', 7], ['52', 8]],  {}, {class: "form-control"} %>
+						</div>
 
-				  </br>
+						<div class="col-sm-1">
+						    <small><%= f.label :rooms %></small>
+							<%= f.select :rooms, [['1', 1], ['2', 2], ['3', 3]] , {}, {class: "form-control"} %>
+					  	</div>
 
-				  <div class="col-sm-3">
-				   <%= f.label :image %>
-    			   <%= f.file_field :image, class: "form-control" %>
-				 </div>
+					</div>
 
-				 </br>
+				  	</br>
 
-				 <div class="col-sm-4">
-					<%= link_to "Back", :back, class: "btn btn-outline-secondary" %>
-					<%= f.submit 'Save plan' ,class: "btn btn-outline-success" %>						
-				 </div>
+				  		<div class="col-sm-3">
+						   <small><%= f.label :image %></small>
+		    			   <%= f.file_field :image, class: "form-control" %>
+				 		</div>
+
+				 	</br>
+
+				 		<div class="col-sm-4">
+							<%= link_to "Back", :back, class: "btn btn-outline-secondary" %>
+							<%= f.submit 'Save plan' ,class: "btn btn-outline-success" %>						
+				 		</div>
 				 
 
 			<% end %>
