@@ -4,13 +4,13 @@
 
     <style>
    body{
-    background-image: url(/assets/back-3.jpg) , url(/assets/back-6.jpg) , url(/assets/back-3.jpg) , url(/assets/back-2.jpg);
+    background-image: url(/assets/back-3.jpg) , url(/assets/back-6.jpg) , url(/assets/back-2.jpg) ;
     background-attachment: fixed;
    
     
     background-repeat: no-repeat;
-    background-size: 8%, 25%, 8%, 7% ;
-    background-position: right bottom, center ,left bottom, left top 50px ;
+    background-size: 8%, 25%, 7%;
+    background-position: right bottom, center ,left bottom ;
    } 
  </style>
 
@@ -35,7 +35,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    
 
     <ul class="nav justify-content-center">
       <li class="nav-item">
@@ -52,7 +51,23 @@
       
     </ul>
 
+
   </br>
+
+
+  <div class="position-fixed top-10 start-0">
+
+        <button class="btn btn-secondary btn-sm"><%= link_to "Log In", new_user_session_path , class: "text-decoration-none text-white" %></button>
+
+        <button class="btn btn-secondary btn-sm"><%= link_to "Log Out", destroy_user_session_path , method: :delete , class: "text-decoration-none text-white" %></button></br> 
+
+        <small class="text text-success"><%= notice %></small>
+        <small class="text text-danger"><%= alert %></small>    
+
+  </div>
+
+        
+
 
   <div class="position-fixed top-10 end-0">
 
@@ -114,6 +129,9 @@
 
 
   <body>
+
+    </br>
+
     <%= yield %>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
