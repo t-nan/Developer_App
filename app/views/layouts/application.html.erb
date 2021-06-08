@@ -100,21 +100,37 @@
 
                       <%= form_for :contact,url: contacts_path do |f| %>
 
-                        <div class="mb-3">
-                          <label for="recipient-name" class="col-form-label"> <%= f.label :name %> <%= f.text_field :name, class: "form-control form-control-sm" %> </label>
-                        </div>
+                      <% if user_signed_in? %>
 
-                        <div class="mb-3">
-                          <label for="message-text" class="col-form-label"> <%= f.label :surname %> <%= f.text_field :surname, class: "form-control form-control-sm" %> </label>  
-                        </div>
+                          <div class="col-sm-5">
+                            <small><%= f.label :name %></small>
+                            <%= f.text_field :name, value: current_user.username , class: "form-control form-control-sm" %>
+                          </div></br>
 
-                        <div class="mb-3">
-                          <label for="message-text" class="col-form-label"> <%= f.label :phone %> <%= f.text_field :phone, class: "form-control form-control-sm" %> </label>  
-                        </div>
+                      <% else %>
 
-                        <div class="mb-3">
-                          <label for="message-text" class="col-form-label"> <%= f.label :flat %> <%= f.text_field :flat, class: "form-control form-control-sm" %> </label>  
-                        </div>
+                          <div class="col-sm-5">
+                            <small><%= f.label :name %></small>
+                            <%= f.text_field :name, class: "form-control form-control-sm" %>
+                          </div></br>
+
+                      <% end %>
+
+
+                        <div class="col-sm-5">
+                          <small><%= f.label :surname %></small>
+                          <%= f.text_field :surname, class: "form-control form-control-sm" %>  
+                        </div></br>
+
+                        <div class="col-sm-5">
+                          <small><%= f.label :phone %></small>
+                          <%= f.text_field :phone, class: "form-control form-control-sm" %> 
+                        </div></br>
+
+                        <div class="col-sm-5">
+                          <small><%= f.label :flat %></small>
+                          <%= f.text_field :flat, class: "form-control form-control-sm" %>
+                        </div></br>
              
                     </div>
 
