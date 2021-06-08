@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user! , :only => [:new, :create, :edit, :update, :destroy]
 
   def index
     @plan=Plan.find(params[:plan_id])
