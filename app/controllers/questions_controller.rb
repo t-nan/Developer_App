@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
     @plan=Plan.find(params[:plan_id])
     @questions=@plan.questions.order(created_at: :desc)
