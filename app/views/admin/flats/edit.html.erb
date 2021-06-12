@@ -21,7 +21,7 @@
 
 		<div class="col-sm-1">
 			<small><%= f.label :number %></small>
-			<%= f.text_field :number, class: "form-control" %>
+			<%= f.text_field :number, class: "form-control", required: true %>
 		</div>
 
 		<div class="col-sm-1">
@@ -31,7 +31,7 @@
 
 		<div class="col-sm-1">
 			<small><%= f.label :floor %></small>
-			<%= f.text_field :floor, class: "form-control" %>
+			<%= f.text_field :floor, class: "form-control", required: true %>
 		</div>
 
 	</div></br>
@@ -39,13 +39,13 @@
 	<div class="row g-3 align-items-center">
 
 		<div class="col-sm-1">
-			<small><%= f.label :square %></small>
-			<input class="form-control" type="text" placeholder="Disabled input" aria-label="Disabled input example" disabled  value="<%= @plan.kind %>">
+			<small><%= f.label :square %></small>			
+			<%= f.text_field :square, class: "form-control", required: true , value: @plan.kind ,disabled: true %>
 		</div>
 
 		<div class="col-sm-1">
 			<small><%= f.label :rooms %></small>
-			<input class="form-control" type="text" placeholder="Disabled input" aria-label="Disabled input example" disabled  value="<%= @plan.rooms %>">
+			<%= f.text_field :rooms, class: "form-control", required: true , value: @plan.rooms ,disabled: true %>
 		</div>
 
 	</div></br>

@@ -20,7 +20,7 @@
                	<div class="row g-3 align-items-center">
 			   	  	<div class="col-sm-1">
 					    <small><%= f.label :number %></small>
-						<%= f.text_field :number, class: "form-control" %>
+						<%= f.text_field :number, class: "form-control" , required: true %>
 				  	</div>
 
 				  	<div class="col-sm-1">
@@ -30,7 +30,7 @@
 
 				  	<div class="col-sm-1">
 					    <small><%= f.label :floor %></small>
-						<%= f.text_field :floor, class: "form-control" %>
+						<%= f.text_field :floor, class: "form-control" , required: true %>
 				  	</div>
 				</div></br>
 
@@ -63,7 +63,7 @@
 
 				  	<div class="col-sm-3">
 					    <small><%= f.label :image %></small>
-	    				<%= f.file_field :image %>
+	    				<%= f.file_field :image , required: true%>
 				  	</div>
 
 				</br>
