@@ -97,21 +97,23 @@
                     </div>
 
                     <div class="modal-body">
+            
 
                       <%= form_for :contact,url: contacts_path do |f| %>
 
                       <% if user_signed_in? %>
+ 
 
                           <div class="col-sm-5">
                             <small><%= f.label :name %></small>
-                            <%= f.text_field :name, value: current_user.username , class: "form-control form-control-sm" %>
+                            <%= f.text_field :name, value: current_user.username , class: "form-control form-control-sm", required: true %>
                           </div></br>
 
                       <% else %>
 
                           <div class="col-sm-5">
                             <small><%= f.label :name %></small>
-                            <%= f.text_field :name, class: "form-control form-control-sm" %>
+                            <%= f.text_field :name, class: "form-control form-control-sm" ,required: true %>
                           </div></br>
 
                       <% end %>
@@ -119,29 +121,30 @@
 
                         <div class="col-sm-5">
                           <small><%= f.label :surname %></small>
-                          <%= f.text_field :surname, class: "form-control form-control-sm" %>  
+                          <%= f.text_field :surname, class: "form-control form-control-sm", required: true %>  
                         </div></br>
 
                         <div class="col-sm-5">
                           <small><%= f.label :phone %></small>
-                          <%= f.text_field :phone, class: "form-control form-control-sm" %> 
+                          <%= f.text_field :phone, class: "form-control form-control-sm", required: true %> 
                         </div></br>
 
                         <div class="col-sm-5">
                           <small><%= f.label :flat %></small>
-                          <%= f.text_field :flat, class: "form-control form-control-sm" %>
+                          <%= f.text_field :flat, class: "form-control form-control-sm", required: true %>
                         </div></br>
-             
-                    </div>
 
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-                      <%= f.submit 'Save contact',class: "btn btn-primary btn-sm" %>
-                    </div>
+
+                        <div class="col-sm-5">
+                          <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                          <%= f.submit 'Save contact',class: "btn btn-primary btn-sm" %>
+                        </div>
+             
+                    </div>                    
 
                     <% end %>
 
-
+                  
                   </div>
                 </div>
               </div>
