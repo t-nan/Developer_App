@@ -38,6 +38,11 @@ class Admin::QuestionsController < Admin::ApplicationController
   end
 
   def destroy
+    @plan=Plan.find(params[:plan_id])
+    @question=@plan.questions.find(params[:id])
+    @question.delete
+
+    redirect_to admin_questions_path
   end
 
 
