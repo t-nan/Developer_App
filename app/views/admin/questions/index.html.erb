@@ -6,16 +6,23 @@
 
      <small>Date : <%= question.updated_at.to_date.strftime ("%d/%m/%y") %> </small> </br>
      <small>Name : <%= question.author %> </small> </br>
-     <small>Asks : " <%= link_to question.body, admin_plan_question_path(question.plan_id ,question.id) ,class: "text-decoration-none text-primary"%> " </small> </br>
+     <small class="text text-secondary">Asks : " <%= question.body %>  " </small> </br>
      <small>Plan id : <%=question.plan_id %> </small> </br>
+
+
 
      <% question.answers.each do |q| %>	
 
-		 <small class="text text-success">Answer : <%= q.body %> </small></br>
+		 <small class="text text-secondary">Answer :"" <%= q.body %> "</small></br>
 
      <% end%>
 
     </br>
+
+    <button type="button" class="btn btn-info btn-sm rounded-pill"> <%= link_to 'Show',admin_plan_question_path(question.plan_id ,question.id), class: "text-decoration-none text-white "%> </button>
+
+    <button type="button" class="btn btn-danger btn-sm rounded-pill"> <%= link_to 'Delete',admin_plan_question_path(question.plan_id,question.id), method: :delete, data: {confirm: "Delete position"}, class: "text-decoration-none text-white "%> </button>
+
     <hr>
 
     <% end%>	
