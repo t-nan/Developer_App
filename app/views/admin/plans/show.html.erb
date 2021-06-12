@@ -60,11 +60,11 @@
 					        	<%= form_for ([@plan,@plan.questions.build]) do |f| %>
 
 						          <div class="mb-3">
-						            <label for="recipient-name" class="col-form-label"> <%= f.label :author %> <%= f.text_field :author, class: "form-control form-control-sm" %> </label>
+						            <label for="recipient-name" class="col-form-label"> <%= f.label :author %> <%= f.text_field :author, class: "form-control form-control-sm", required: true %> </label>
 						          </div>
 
 						          <div class="mb-5">
-						            <label for="message-text" class="col-form-label"> <%= f.label :body %> <%= f.text_area :body, class: "form-control form-control-sm" %> </label>  
+						            <label for="message-text" class="col-form-label"> <%= f.label :body %> <%= f.text_area :body, class: "form-control form-control-sm" , required: true%> </label>  
 						          </div>
 
                             
