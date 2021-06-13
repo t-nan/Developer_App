@@ -11,7 +11,7 @@ class Flat < ApplicationRecord
   validates :floor, presence: true, numericality: { only_integer: true}
   validates :square, presence: true, numericality: { only_integer: true}
   validates :rooms, presence: true, numericality: { only_integer: true}
-  validates :entrance, presence: true
+  validates :entrance, presence: true, numericality: { only_integer: true}
   validates :status, exclusion: [nil]
   
 end
