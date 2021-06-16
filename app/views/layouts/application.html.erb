@@ -54,14 +54,26 @@
 
   </br>
 
+  
+  <div class="position-fixed top-0 end-0">
+    <div class="container">
+
+      <% if user_signed_in? %>
+
+        <small class="text text-secondary"> Hello, <%= current_user.username %></small></br>
+
+      <% end %>
+
+    </div>
+</div>
+
 
   <div class="position-fixed top-10 start-0">
+    <div class="container">
 
     <% if user_signed_in? %>
 
-        <button class="btn btn-secondary btn-sm"><%= link_to "Log Out", destroy_user_session_path , method: :delete , class: "text-decoration-none text-white" %></button></br></br>
-
-        <small class="text text-secondary"> -Hello, <%= current_user.username %></small></br>
+        <button class="btn btn-secondary btn-sm"><%= link_to "Log Out", destroy_user_session_path , method: :delete , class: "text-decoration-none text-white" %></button></br>        
 
     <% else %>
 
@@ -70,21 +82,20 @@
     <% end %>
 
         <small class="text text-success"><%= notice %></small>
-        <small class="text text-danger"><%= alert %></small>    
+        <small class="text text-danger"><%= alert %></small>
 
+    </div>
   </div>
-
-
-
-
-        
+    
 
 
   <div class="position-fixed top-10 end-0">
+    <div class="container">
 
          <button type="button" class="btn btn-primary btn-md rounded-pill" data-bs-toggle="modal"   data-bs-target="#random">
              To book <span class="badge bg-info">click</span>
          </button>
+    </div>
   </div>
 
               <div class="modal fade" id="random" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -96,7 +107,7 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
-                    <div class="modal-body">
+                    <div class="modal-body">                   
             
 
                       <%= form_for :contact,url: contacts_path do |f| %>
