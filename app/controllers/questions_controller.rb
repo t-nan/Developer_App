@@ -19,11 +19,8 @@ class QuestionsController < ApplicationController
   def create
     @plan=Plan.find(params[:plan_id])
     question=@plan.questions.new (question_params)
-    if question.save
-      redirect_to plan_path(@plan)
-    else
-      render ""
-    end
+       question.save
+       redirect_to plan_path(@plan), notice: "Your question has been saved!"  
 
   end
 

@@ -39,8 +39,14 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
   gem 'rspec-rails'
+
   gem 'shoulda-matchers'
+
   gem "factory_bot_rails"
+
+  gem 'capybara', '>= 2.15'
+
+  gem 'database_cleaner'
 
 end
 
@@ -54,10 +60,6 @@ group :development do
 end
 
 group :test do
-
-  gem 'capybara', '>= 2.15'
-
-  gem 'database_cleaner'
 
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
