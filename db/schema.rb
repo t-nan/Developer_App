@@ -12,46 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2021_06_08_202041) do
 
-  create_table "plans", force: :cascade do |t|
-    t.integer "kind"
-    t.integer "rooms"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.bigint "image_file_size"
-    t.datetime "image_updated_at"
-  end
-
-
-  create_table "flats", force: :cascade do |t|
-    t.integer "plan_id", null: false
-    t.integer "entrance"
-    t.integer "floor"
-    t.integer "number"
-    t.integer "square"
-    t.integer "rooms"
-    t.boolean "status"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.bigint "image_file_size"
-    t.datetime "image_updated_at"
-    t.index ["plan_id"], name: "index_flats_on_plan_id"
-  end
-
-
-  create_table "questions", force: :cascade do |t|
-    t.integer "plan_id", null: false
-    t.string "author"
-    t.text "body"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["plan_id"], name: "index_questions_on_plan_id"
-  end
-
-
   create_table "answers", force: :cascade do |t|
     t.integer "question_id", null: false
     t.string "author"
@@ -70,7 +30,43 @@ ActiveRecord::Schema.define(version: 2021_06_08_202041) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  
+  create_table "flats", force: :cascade do |t|
+    t.integer "plan_id", null: false
+    t.integer "entrance"
+    t.integer "floor"
+    t.integer "number"
+    t.integer "square"
+    t.integer "rooms"
+    t.boolean "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.bigint "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["plan_id"], name: "index_flats_on_plan_id"
+  end
+
+  create_table "plans", force: :cascade do |t|
+    t.integer "kind"
+    t.integer "rooms"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.bigint "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "plan_id", null: false
+    t.string "author"
+    t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["plan_id"], name: "index_questions_on_plan_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
