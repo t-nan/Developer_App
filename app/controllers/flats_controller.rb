@@ -2,7 +2,7 @@ class FlatsController < ApplicationController
 
   def index
     
-    @flats=Flat.all
+    @flats=Flat.all.order(:created_at)
 
   end
 
