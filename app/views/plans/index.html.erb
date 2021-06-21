@@ -4,7 +4,7 @@
 	<h5 class="position-fixed top-50 end-0"><span class="badge  bg-info"> Plans </span></h5>
 
     <div class="p-3 mb-2 bg-white text-info">
-	<table class="table table-hover">		
+	<table class="table">		
 	  	<tbody class="text-center">
 	  		
 	  		<tr>
@@ -29,8 +29,19 @@
 
 		     <tr>
 
-		       <td> <%=image_tag line.image.url(:thumb) %> </td>
+		       <!-- <td> <%=image_tag line.image.url(:thumb) %> </td> -->
 
+		       <td><div style="width:110px; height:110px">
+
+						<figure class="figure">
+	  						<img src="https://galiwigs.co.uk/hood/images/no-image.jpg" class="figure-img img-fluid rounded">
+						</figure>
+	  
+ 					</div>
+
+ 			   </td>
+
+ 			   
 			   <td> </br></br> <%= line.kind %> </td>
 
 			   <td> </br></br> <%= line.rooms %> </td>
