@@ -1,7 +1,7 @@
 class Admin::PlansController < Admin::ApplicationController
   
  def index
-    @plans=Plan.all
+    @plans=Plan.all.order(:created_at)
 
   end
 
