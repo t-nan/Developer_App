@@ -18,11 +18,15 @@ class QuestionsController < ApplicationController
 
   def create
     @plan=Plan.find(params[:plan_id])
-    question=@plan.questions.new (question_params)
-       question.save
-       redirect_to plan_path(@plan), notice: "Your question has been saved!"  
+    @question=@plan.questions.new (question_params)
 
+       if @question.save
+          redirect_to plan_path(@plan), notice: "Your question has been saved!"
+       else
+          redirect_to plan_path(@plan), alert: "Not saved ! Error in filling in the fields."
+       end
   end
+
 
   def edit
   end
