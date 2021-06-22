@@ -134,12 +134,21 @@
 
                         <div class="col-sm-5">
                           <small><%= f.label :phone %></small>
-                          <%= f.text_field :phone, class: "form-control form-control-sm", required: true %> 
+                          <%= f.text_field :phone, class: "form-control form-control-sm", required: true %>
+
+                          <span id="passwordHelpInline" class="form-text">
+                                Minimum 7 symbols
+                          </span>
+
                         </div></br>
 
                         <div class="col-sm-5">
                           <small><%= f.label :flat %></small>
                           <%= f.text_field :flat, class: "form-control form-control-sm", required: true %>
+
+                          <span id="passwordHelpInline" class="form-text">
+                                Type flat number
+                          </span>
                         </div></br>
 
 
