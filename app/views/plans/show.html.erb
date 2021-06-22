@@ -80,7 +80,7 @@
 
                                 	  <div class="col-sm-3">						     
 							            	<small><%= f.label :author %></small>
-							            	<%= f.text_field :author, class: "form-control form-control-sm" , required: true%>						           
+							            	<%= f.text_field :author, class: "form-control form-control-sm" , required: true%>					           
 							          </div></br>
 
 							    <% end %>
@@ -90,6 +90,10 @@
 						          <div class="col-sm-10">
 						          		<small><%= f.label :body %></small>
 						          		<%= f.text_area :body, class: "form-control form-control-sm" , required: true %>
+
+						          		<span id="passwordHelpInline" class="form-text">
+      										Maximum 200 symbols
+    									</span>
 						          </div></br>
 
                             
