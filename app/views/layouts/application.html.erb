@@ -19,7 +19,7 @@
 
  <style>
    ul{
-    background-color: #5dff00 ;
+    background-color: #696969 ;
     background-attachment: fixed;
    } 
  </style>
@@ -57,7 +57,7 @@
 
       <% if user_signed_in? %>
 
-        <small class="text text-secondary"> Hello, <%= current_user.username %></small></br>
+        <small class="text text-light"> Hello, <%= current_user.username %></small></br>
 
       <% end %>
 
@@ -171,8 +171,9 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
+
+  </head>
 
 
   <body>
