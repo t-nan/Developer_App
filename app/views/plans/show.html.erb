@@ -1,7 +1,7 @@
 <h5 class="position-fixed top-50 end-0"><span class="badge  bg-info"> Plan kind </br> </br> <%= @plan.kind %> m2 </span></h5>
 
 <div class="position-fixed top-50 start-0" >
-	<%= link_to "Back", plans_path, class: "btn btn-secondary" %>
+	<%= link_to I18n.t('.back_button'), plans_path, class: "btn btn-secondary" %>
 </div>
 
 <div class="container">
@@ -44,7 +44,7 @@
         	</br></br></br>
 
 			
-        	<h6 class="text text-center">Log In to - 
+        	<h6 class="text text-center"><%= link_to 'Log In' , new_user_session_path , class: "text-decoration-none text-primary" %> to - 
 
             	<button type="button" class="btn btn-primary btn-sm position-relative rounded-pill " data-bs-toggle="modal" 	data-bs-target="#exampleModal" data-bs-whatever="@mdo">ask
 
@@ -99,7 +99,7 @@
                             
 			      		          <div class="col-sm-5">
                           				<button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-                          				<%= f.submit 'Save question',class: "btn btn-primary btn-sm" %>
+                          				<%= f.submit I18n.t('.save_button'),class: "btn btn-primary btn-sm" %>
                         		  </div>
 
 
@@ -260,7 +260,7 @@
                     <% end %>
 
 
-			  <td> <%= link_to 'Show',plan_flat_path(@plan,line), class: "text-decoration-none text-danger" %> </td>
+			  <td> <%= link_to I18n.t('.show_flat_button'),plan_flat_path(@plan,line), class: "text-decoration-none text-info" %> </td>
 			  
 			
 		     </tr>

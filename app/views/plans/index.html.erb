@@ -20,7 +20,7 @@
 
 	  			<th class="p-3 mb-2 bg-info text-white"> Sold out </th>
 
-	  			<th class="p-3 mb-2 bg-info text-white"> Show flats of this type </th>
+	  			<th class="p-3 mb-2 bg-info text-white"> Show plan & flats </th>
 
 	  			
 	  		</tr></br>
@@ -62,7 +62,7 @@
 			   </td>
 			   
 
-			   <td> </br></br> <%= link_to 'Show flats',plan_path(line), class: "text-decoration-none text-primary" %></td>
+			   <td> </br></br> <%= link_to I18n.t('.show_plan_button') , plan_path(line), class: "text-decoration-none text-info" %></td>
 
 			
 		     </tr>
