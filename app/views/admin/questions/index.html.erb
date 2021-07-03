@@ -19,9 +19,9 @@
 
     </br>
 
-    <button type="button" class="btn btn-info btn-sm rounded-pill"> <%= link_to 'Show',admin_plan_question_path(question.plan_id ,question.id), class: "text-decoration-none text-white "%> </button>
+    <button type="button" class="btn btn-info btn-sm rounded-pill"> <%= link_to I18n.t('.show_button'),admin_plan_question_path(question.plan_id ,question.id), class: "text-decoration-none text-white "%> </button>
 
-    <button type="button" class="btn btn-danger btn-sm rounded-pill"> <%= link_to 'Delete',admin_plan_question_path(question.plan_id,question.id), method: :delete, data: {confirm: "Delete position"}, class: "text-decoration-none text-white "%> </button>
+    <button type="button" class="btn btn-danger btn-sm rounded-pill"> <%= link_to I18n.t('.delete_button'),admin_plan_question_path(question.plan_id,question.id), method: :delete, data: {confirm: "Delete position"}, class: "text-decoration-none text-white "%> </button>
 
     <hr>
 

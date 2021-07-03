@@ -42,7 +42,7 @@
 		<div class="col">
 
 
-		    <%= link_to "Back", admin_plan_path(@plan) , class: "btn btn-outline-secondary" %>
+		    <%= link_to I18n.t('.back_button'), admin_plan_path(@plan) , class: "btn btn-outline-secondary" %>
 
 			<a class="btn btn-outline-primary" data-bs-toggle="collapse" href="#collapseExample"  aria-controls="collapseExample">
 		    		Click to answer
@@ -79,7 +79,7 @@
 				       </br>
 
 					<div class="form-group">
-						<%= f.submit 'Save',class: "btn btn-outline-secondary btn-sm" %>	
+						<%= f.submit I18n.t('.save_button'),class: "btn btn-outline-secondary btn-sm" %>	
 					</div>
 
 					<% end %>
