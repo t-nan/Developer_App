@@ -1,93 +1,92 @@
 
-<div class="container">
+<% if @fl.any? %>
 
-	<h5 class="position-fixed top-50 end-0"><span class="badge  bg-info"> All flats </span></h5>
+	<div class="container">
 
-    <div class="p-3 mb-2 bg-white text-info">
-	<table class="table table-striped">
-	  	<tbody class="text-center">
-	  		
-	  		<tr>
+	  <%= search_form_for @search do |f| %>
+	    
+	    <div class="row g-3 align-items-center py-3">
 
-	  			<th class="p-3 mb-2 bg-info text-white">Flat number </th>
+	      <div class="col-auto">
+	        <%= f.label :square_eq, 'Search by square (m2)', class: 'col-form-label' %>
+	      </div>
+	 
+	      <div class="col-sm-1">
+	        <%= f.text_field :square_eq, class: 'form-control' %>
+	      </div>
 
-	  			<th class="p-3 mb-2 bg-info text-white"> Entrance </th>
+	      <div class="col-auto">
+	        <%= f.submit 'Find', class: 'btn btn-outline-primary btn-sm' %>             
+	      </div>
 
-	  			<th class="p-3 mb-2 bg-info text-white"> Floor </th>
+	    </div>
 
-	  			<th class="p-3 mb-2 bg-info text-white"> Square </th>
+	  <% end %>
 
-	  			<th class="p-3 mb-2 bg-info text-white"> Rooms </th>
+	  <div class="py-3">
+		  <p>
+		    Sort by:
+		    <%= sort_link(@search, :number, ' Flat number ', default_order: :desc) %> |
+		    <%= sort_link(@search, :square, ' Square ', default_order: :desc) %> |
+		    <%= sort_link(@search, :status, ' Status ', default_order: :desc) %> |		    
+		    <%= link_to 'Reset', flats_path, class: 'btn btn-outline-success btn-sm' %>
+		  </p>
+  	  </div>
+	 
 
-	  			<th class="p-3 mb-2 bg-info text-white"> Status </th>
+		<h5 class="position-fixed top-50 end-0"><span class="badge  bg-info"> All flats </span></h5>
+		 
 
-	  			<th class="p-3 mb-2 bg-info text-white"> Show </th>
+	    <div class="p-3 mb-2 bg-light ">
+		<table class="table table-striped">
+		  	<tbody class="text-center">
+		  		
+		  		<tr>
 
-	  			<th class="p-3 mb-2 bg-info text-white"> Show similar </th>
+		  			<th class="p-3 mb-2 bg-info text-light"> Flat number </th>
 
+		  			<th class="p-3 mb-2 bg-info text-light"> Entrance </th>
 
-	  		</tr></br>
+		  			<th class="p-3 mb-2 bg-info text-light"> Floor </th>
 
+		  			<th class="p-3 mb-2 bg-info text-light"> Square </th>
 
-			<% @flats.each do |line| %>
+		  			<th class="p-3 mb-2 bg-info text-light"> Rooms </th>
 
-		     <tr>
+		  			<th class="p-3 mb-2 bg-info text-light"> Status </th>
 
-			   <td> <%= line.number %> </td>
+		  			<th class="p-3 mb-2 bg-info text-light"> Show </th>
 
-			   <td> <%= line.entrance %> </td>
-
-			   <td> <%= line.floor %> </td>
-
-			   <td> <%= line.square %> m2 </td>
-
-			   <td> <%= line.rooms %> </td>
-
-			        <% line.status %>
-
-                    <% if line.status==true %>
-
-                       <td class="text-success"> On sale </td>
-                    	
-                    <% else %>
-
-                       <td class="text-danger"> Booked </td>
-
-                    <% end %>
-
-
-                 <td> <%= link_to 'Show ', plan_flat_path(line.plan_id,line.id) , class: "text-decoration-none text-danger" %></td>
-
-                 <td> <%= link_to 'Show similar',plan_path(line.plan_id), class: "text-decoration-none text-danger "%>
-         
-
-			
-		     </tr>
+		  			<th class="p-3 mb-2 bg-info text-light"> Show similar </th>
 
 
-		    <% end %>
- 
+		  		</tr>
 
-		</tbody>
+		  		 <%= render "fl" %>
 
-	</table>
-    </div>
+		  	</tbody>
 
-</div>
-
-</div>
+		</table>
+	    </div>
 
 
 
+		<div class="paginator"><%= will_paginate @fl %></div>
 
+	<% elsif params[:q].present? %>
 
+	      </br>
 
+		  <div class="container"> 
 
+		  <p class="text text-danger"> Out of <%= @flats_count %> flats, 0 were found </p>
 
+		  <p> <%= link_to 'Show all flats', flats_path, class: 'btn btn-outline-secondary btn-sm' %> </p>
+	
 
+	<% end %>
 
-
-
+	</div>
 
 
 
