@@ -4,6 +4,12 @@ class FlatsController < ApplicationController
     
     @flats=Flat.all.order(:created_at)
 
+    @flats_count = Flat.count
+
+    @search = Flat.ransack(params[:q])
+
+    @fl = @search.result(distinct: true).paginate(page: params[:page], per_page: 7)
+
   end
 
   def show
