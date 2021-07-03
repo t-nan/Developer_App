@@ -69,8 +69,8 @@
 				</br>
 
 				  	<div class="col-sm">
-						<%= link_to "Back", :back, class: "btn btn-outline-secondary" %>
-						<%= f.submit 'Save flat' ,class: "btn btn-outline-success" %>						
+						<%= link_to I18n.t('.back_button') ,:back, class: "btn btn-outline-secondary" %>
+						<%= f.submit I18n.t('.save_button') ,class: "btn btn-outline-success" %>						
 				  	</div>			 		
 
 	<% end %>

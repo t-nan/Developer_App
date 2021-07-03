@@ -1,6 +1,6 @@
 
 <div class="position-fixed top-50 start-0">
-	<%= link_to 'Add Flat',new_admin_flat_path, class: "btn btn-danger" %>
+	<%= link_to I18n.t('.add_flat_button'),new_admin_flat_path, class: "btn btn-danger" %>
 </div>
 
 <div class="container">
@@ -25,7 +25,7 @@
 
 	  			<th class="p-3 mb-2 bg-secondary text-white"> Show </th>
 
-	  			<th class="p-3 mb-2 bg-secondary text-white"> Show similar</th>
+	  			<th class="p-3 mb-2 bg-secondary text-white"> Show plan</th>
 
 	  			<th class="p-3 mb-2 bg-secondary text-white"> Edit </th>
 
@@ -61,13 +61,13 @@
                     <% end %>
 
 
-                 <td> <%= link_to 'Show', admin_plan_flat_path(line.plan_id,line.id) , class: "text-decoration-none text-danger" %></td>
+                 <td> <%= link_to I18n.t('.show_flat_button'), admin_plan_flat_path(line.plan_id,line.id) , class: "text-decoration-none text-info" %></td>
 
-                 <td> <%= link_to 'Show similar',admin_plan_path(line.plan_id), class: "text-decoration-none text-danger "%>
+                 <td> <%= link_to I18n.t('.show_plan_button'),admin_plan_path(line.plan_id), class: "text-decoration-none text-info "%>
 
-                 <td> <%= link_to 'Edit', edit_admin_plan_flat_path(line.plan_id,line.id) , class: "text-decoration-none text-danger"  %></td>
+                 <td> <%= link_to I18n.t('.edit_button'), edit_admin_plan_flat_path(line.plan_id,line.id) , class: "text-decoration-none text-danger"  %></td>
 
-                 <td> <%= link_to 'Delete',admin_plan_flat_path(line.plan_id,line.id), method: :delete, data: {confirm: "Delete position"}, class: "text-decoration-none text-danger "%>
+                 <td> <%= link_to I18n.t('.delete_button'),admin_plan_flat_path(line.plan_id,line.id), method: :delete, data: {confirm: "Delete position"}, class: "text-decoration-none text-danger "%>
 			
 		     </tr>
 
