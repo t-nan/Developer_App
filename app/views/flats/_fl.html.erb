@@ -1,0 +1,37 @@
+		<% @fl.each do |line| %>
+
+		     <tr>
+
+			   <td> <%= line.number %> </td>
+
+			   <td> <%= line.entrance %> </td>
+
+			   <td> <%= line.floor %> </td>
+
+			   <td> <%= line.square %> m2 </td>
+
+			   <td> <%= line.rooms %> </td>
+
+			        <% line.status %>
+
+                    <% if line.status==true %>
+
+                       <td class="text-success"> On sale </td>
+                    	
+                    <% else %>
+
+                       <td class="text-danger"> Booked </td>
+
+                    <% end %>
+
+
+                 <td> <%= link_to 'Show ', plan_flat_path(line.plan_id,line.id) , class: "text-decoration-none text-danger" %></td>
+
+                 <td> <%= link_to 'Show similar',plan_path(line.plan_id), class: "text-decoration-none text-danger "%>
+         
+
+			
+		     </tr>
+
+
+		    <% end %>
