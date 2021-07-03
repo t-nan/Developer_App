@@ -25,9 +25,9 @@
                     <% end %>
 
 
-                 <td> <%= link_to 'Show ', plan_flat_path(line.plan_id,line.id) , class: "text-decoration-none text-danger" %></td>
+                 <td> <%= link_to I18n.t('.show_flat_button'), plan_flat_path(line.plan_id,line.id) , class: "text-decoration-none text-danger" %></td>
 
-                 <td> <%= link_to 'Show similar',plan_path(line.plan_id), class: "text-decoration-none text-danger "%>
+                 <td> <%= link_to I18n.t('.show_plan_button'),plan_path(line.plan_id), class: "text-decoration-none text-danger "%>
          
 
 			

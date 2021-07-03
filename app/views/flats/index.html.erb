@@ -16,7 +16,7 @@
 	      </div>
 
 	      <div class="col-auto">
-	        <%= f.submit 'Find', class: 'btn btn-outline-primary btn-sm' %>             
+	        <%= f.submit I18n.t('.search_button'), class: 'btn btn-outline-primary btn-sm' %>             
 	      </div>
 
 	    </div>
@@ -29,7 +29,7 @@
 		    <%= sort_link(@search, :number, ' Flat number ', default_order: :desc) %> |
 		    <%= sort_link(@search, :square, ' Square ', default_order: :desc) %> |
 		    <%= sort_link(@search, :status, ' Status ', default_order: :desc) %> |		    
-		    <%= link_to 'Reset', flats_path, class: 'btn btn-outline-success btn-sm' %>
+		    <%= link_to I18n.t('.reset_button'), flats_path, class: 'btn btn-outline-success btn-sm' %>
 		  </p>
   	  </div>
 	 
@@ -57,7 +57,7 @@
 
 		  			<th class="p-3 mb-2 bg-info text-light"> Show </th>
 
-		  			<th class="p-3 mb-2 bg-info text-light"> Show similar </th>
+		  			<th class="p-3 mb-2 bg-info text-light"> Show plan </th>
 
 
 		  		</tr>
