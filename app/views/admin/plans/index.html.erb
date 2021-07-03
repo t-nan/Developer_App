@@ -1,6 +1,6 @@
    
 <div class="position-fixed top-50 start-0">
-	<%= link_to 'Add Plan',new_admin_plan_path, class: "btn btn-danger" %>
+	<%= link_to I18n.t('.add_plan_button') ,new_admin_plan_path, class: "btn btn-danger" %>
 </div>
 
     <div class="p-3 mb-2 bg-white text-dark">
@@ -65,13 +65,13 @@
 			   </td>
 			   
 
-			   <td> </br></br> <%= link_to 'Show flats',admin_plan_path(line), class: "text-decoration-none text-danger" %></td>
+			   <td> </br></br> <%= link_to I18n.t('.show_plan_button'),admin_plan_path(line), class: "text-decoration-none text-danger" %></td>
 
 
 
-			  <td> </br></br> <%= link_to 'Edit',edit_admin_plan_path(line), class: "text-decoration-none text-danger" %> </td>
+			  <td> </br></br> <%= link_to I18n.t('.edit_button'),edit_admin_plan_path(line), class: "text-decoration-none text-danger" %> </td>
 
-              <td> </br></br> <%= link_to 'Delete',admin_plan_path(line), method: :delete, data: {confirm: "Delete position"}, class: "text-decoration-none text-danger" %>
+              <td> </br></br> <%= link_to I18n.t('.delete_button'),admin_plan_path(line), method: :delete, data: {confirm: "Delete position"}, class: "text-decoration-none text-danger" %>
               </td>
 
 			

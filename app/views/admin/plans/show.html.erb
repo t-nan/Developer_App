@@ -1,7 +1,7 @@
 
 
 <div class="position-fixed top-50 start-0" >
-	<%= link_to "Back", admin_plans_path, class: "btn btn-secondary" %>
+	<%= link_to I18n.t('.back_button'), admin_plans_path, class: "btn btn-secondary" %>
 </div>
 
 <div class="container">
@@ -78,7 +78,7 @@
                             
 			      		          <div class="modal-footer">
 				                      <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-				                      <%= f.submit 'Save question',class: "btn btn-primary btn-sm" %>
+				                      <%= f.submit I18n.t('.save_button'),class: "btn btn-primary btn-sm" %>
                     			  </div>
 
 
@@ -240,10 +240,10 @@
 
           
 
-			  <td> <%= link_to 'Show',admin_plan_flat_path(@plan,line), class: "text-decoration-none text-danger" %> </td>
-			  <td> <%= link_to 'Edit',edit_admin_plan_flat_path(@plan,line), class: "text-decoration-none text-danger "%> </td>
+			  <td> <%= link_to I18n.t('.show_flat_button') ,admin_plan_flat_path(@plan,line), class: "text-decoration-none text-danger" %> </td>
+			  <td> <%= link_to I18n.t('.edit_button'),edit_admin_plan_flat_path(@plan,line), class: "text-decoration-none text-danger "%> </td>
 
-              <td> <%= link_to 'Delete',admin_plan_flat_path(@plan,line), method: :delete, data: {confirm: "Delete position"}, class: "text-decoration-none text-danger "%>
+              <td> <%= link_to I18n.t('.delete_button'),admin_plan_flat_path(@plan,line), method: :delete, data: {confirm: "Delete position"}, class: "text-decoration-none text-danger "%>
 			
 		     </tr>
 
