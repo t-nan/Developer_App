@@ -7,7 +7,7 @@ feature "Account Creation" do
     
       sign_up
    
-    expect(page).to have_content 'Welcome! You have signed up successfully.'
+    expect(page).to have_content I18n.t('.devise.registrations.signed_up')
 
   end
  
@@ -30,7 +30,7 @@ feature "Account Creation" do
     fill_in :contact_phone, with: '000000000000'
     fill_in :contact_flat, with: '1'
 
-    click_button 'Save contact'
+    click_button I18n.t('.save_button')
 
     expect(page).to have_content 'Your contact has been saved!'
   end
@@ -46,6 +46,6 @@ def sign_up
   fill_in :user_password, with: '1234567'
   fill_in :user_password_confirmation, with: '1234567'
 
-  click_button 'Sign up'
+  click_button I18n.t('.sign_up_button')
 end
 
