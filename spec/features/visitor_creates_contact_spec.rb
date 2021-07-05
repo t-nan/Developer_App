@@ -20,7 +20,7 @@ feature "Contact creation" do
     fill_in :contact_phone, with: '000000000000'
     fill_in :contact_flat, with: '1'
 
-    click_button 'Save contact'
+    click_button I18n.t('.save_button')
 
     expect(page).to have_content 'Your contact has been saved!'
   end
@@ -35,7 +35,7 @@ feature "Contact creation" do
     fill_in :contact_phone, with: 'abc'
     fill_in :contact_flat, with: 'xy'
 
-    click_button 'Save contact'
+    click_button I18n.t('.save_button')
 
     expect(page).to have_content 'Contact not saved ! Make sure that the forms are filled in correctly.'
   end
