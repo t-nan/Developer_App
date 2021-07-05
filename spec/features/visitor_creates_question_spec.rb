@@ -19,10 +19,10 @@ feature "Question Creation" do
     fill_in :question_author, with: 'Peter'
     fill_in :question_body, with: 'Testing message'
 
-    click_button 'Save question'
+    click_button 'Save'
 
-    expect { (visit new_user_session_url).to have_content 'You need to sign in or sign up before continuing.
-'}
+    expect { (visit new_user_session_url).to have_content 'You need to sign in or sign up before continuing.'
+}
     
   end
 
@@ -35,7 +35,7 @@ feature "Question Creation" do
     fill_in :question_author, with: 'Peter'
     fill_in :question_body, with: 'Testing message'
 
-    click_button 'Save question'
+    click_button 'Save'
 
     expect(page).to have_content 'Your question has been saved!'
   end
@@ -51,7 +51,7 @@ def sign_up
   fill_in :user_password, with: '1234567'
   fill_in :user_password_confirmation, with: '1234567'
 
-  click_button 'Sign up'
+  click_button I18n.t('.sign_up_button')
 end
 
 
