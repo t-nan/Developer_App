@@ -6,7 +6,7 @@ feature "Account Creation" do
     
       sign_up
    
-    expect(page).to have_content 'Welcome! You have signed up successfully.'
+    expect(page).to have_content I18n.t('.devise.registrations.signed_up')
 
   end
 
@@ -15,9 +15,9 @@ feature "Account Creation" do
 
       sign_up
 
-      click_link 'Log Out'
+      click_link I18n.t('.log_out_button')
 
-      expect(page).to have_content 'Signed out successfully.'
+      expect(page).to have_content I18n.t('.devise.sessions.signed_out')
 
   end
 
@@ -27,7 +27,7 @@ feature "Account Creation" do
       
       log_in
 
-      expect(page).to have_content 'Signed in successfully.'
+      expect { (visit plans_url).to have_content 'Log Out'}
 
   end
 
@@ -42,15 +42,16 @@ def sign_up
   fill_in :user_password, with: '1234567'
   fill_in :user_password_confirmation, with: '1234567'
 
-  click_button 'Sign up'
+  click_button I18n.t('.sign_up_button')
 end
 
 
 def log_in
   visit new_user_session_path
 
-  fill_in :user_email, with: '10@y.kz'
+  fill_in :user_email, with: '15@y.kz'
   fill_in :user_password, with: '1234567'
 
   click_button 'Log in'
+
 end
