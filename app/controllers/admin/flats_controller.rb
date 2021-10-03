@@ -58,7 +58,7 @@ class Admin::FlatsController < Admin::ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:number,:entrance,:floor,:square,:plan_id,:rooms,:status,:image)
+    params.require(:flat).permit(:number,:entrance,:floor,:square,:plan_id,:rooms,:status,:image,:link)
   end
 
 end

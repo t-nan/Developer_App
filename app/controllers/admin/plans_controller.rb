@@ -61,7 +61,7 @@ class Admin::PlansController < Admin::ApplicationController
   private
 
   def plan_params
-    params.require(:plan).permit(:kind , :rooms , :image )
+    params.require(:plan).permit(:kind , :rooms , :image , :link )
   end
 
 

@@ -31,14 +31,21 @@
 							<%= f.select :rooms, [['1', 1], ['2', 2], ['3', 3]] , {}, {class: "form-control"} %>
 					  	</div>
 
+					  
+						<div class="col-sm-5">
+							<%= f.label :link %>
+							<%= f.text_field :link, class: "form-control" %>
+						</div>
+						
+
 					</div>
 
 				  	</br>
 
-				  		<div class="col-sm-3">
+				  	<!--<div class="col-sm-3">
 						   <small><%= f.label :image %></small>
-		    			   <%= f.file_field :image, class: "form-control", required: true %>
-				 		</div>
+		    			   <%= f.file_field :image, class: "form-control"%>
+				 		</div> -->
 
 				 	</br>
 

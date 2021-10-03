@@ -59,12 +59,22 @@
 						<%= f.select :status, [['On sale', 1], ['Booked', 0]] , {}, {class: "form-control"} %>
 				  	</div>
 
-				</br>  
+				</br> 
 
-				  	<div class="col-sm-3">
+
+					<div class="col-sm-5">
+						<%= f.label :link %>
+						<%= f.text_field :link, class: "form-control" %>
+					</div>
+
+
+				</br> 
+
+
+				<!--<div class="col-sm-3">
 					    <small><%= f.label :image %></small>
 	    				<%= f.file_field :image , required: true%>
-				  	</div>
+				  	</div> -->
 
 				</br>
 

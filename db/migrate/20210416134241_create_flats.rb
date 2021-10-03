@@ -10,6 +10,7 @@ class CreateFlats < ActiveRecord::Migration[6.0]
       t.integer :square
       t.integer :rooms
       t.boolean :status
+      t.string  :link
 
 
       t.timestamps

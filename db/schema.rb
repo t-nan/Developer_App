@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2021_06_08_202041) do
     t.integer "square"
     t.integer "rooms"
     t.boolean "status"
+    t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image_file_name"
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 2021_06_08_202041) do
   create_table "plans", force: :cascade do |t|
     t.integer "kind"
     t.integer "rooms"
+    t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image_file_name"
